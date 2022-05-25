@@ -1,8 +1,22 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+const axios = require("axios");
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+
+const system = {
+  token: "QVJVSVo6SW5jb20jNzI0IQ==",
+  url: "https://my338095.sapbydesign.com/sap/byd/odata/ana_businessanalytics_analytics.svc/RPZ19E8DA3EFFE9E02CA7CB66QueryResults?$select=CITEM_GROUP,TITEM_GROUP,CPRODUCT_ID,TPRODUCT_ID,CSALES_MEASURE_UNIT_CODE,TSALES_MEASURE_UNIT_CODE&$filter=(CPRODUCT_ID%20eq%20%27*ALCOHOL40%27)&$format=json",
+};
 
 export default function Home() {
+  const putOrder = () => {
+    axios
+      .post("/api/order")
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -16,8 +30,17 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <div className="w-full py-8 flex justify-center items-center">
+          <button
+            onClick={putOrder}
+            className="bg-blue-500 rounded-full text-white px-4 py-2"
+          >
+            Obtener unidad
+          </button>
+        </div>
+
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -58,12 +81,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
 }
