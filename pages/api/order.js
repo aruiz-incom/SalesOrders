@@ -10,7 +10,6 @@ const access = {
 export default function handler(req, res) {
   const url = "./wsdl/ManageSalesOrderIn.wsdl";
   const timeStamp = dayjs().utc().format();
-  console.log(timeStamp);
   const requestArgs = {
     SalesOrderBundleMaintainRequest_sync: {
       BasicMessageHeader: {},
@@ -26,7 +25,7 @@ export default function handler(req, res) {
           DataProviderIndicator: true,
         },
         SalesUnitParty: {
-          $attributes: { actionCode: "01" },
+          $attributes: { actionCode: "04" },
           PartyID: "101024",
         },
         SalesAndServiceBusinessArea: {
@@ -45,26 +44,43 @@ export default function handler(req, res) {
           $attributes: { actionCode: "04" },
           CurrencyCode: "MXN",
           PriceDateTime: {
-            $attributes: { timeZoneCode: "UTX" },
-            $value: "2022-05-25T12:00:00Z",
+            $attributes: { timeZoneCode: "UTC" },
+            $value: timeStamp,
           },
-          GrossAmountIndicator: true,
+          GrossAmountIndicator: false,
         },
-        Item: {
-          $attributes: { actionCode: "04" },
-          ID: "10",
-          ReleaseToExecute: false,
-          ItemProduct: {
+        Item: [
+          {
             $attributes: { actionCode: "04" },
-            ProductInternalID: "2178S",
+            ID: "10",
+            ReleaseToExecute: false,
+            ItemProduct: {
+              $attributes: { actionCode: "04" },
+              ProductInternalID: "2178S",
+            },
+            ItemScheduleLine: {
+              $attributes: { actionCode: "04" },
+              ID: "1",
+              TypeCode: "1",
+              Quantity: 2.0,
+            },
           },
-          ItemScheduleLine: {
+          {
             $attributes: { actionCode: "04" },
-            ID: "1",
-            TypeCode: "1",
-            Quantity: 5.0,
+            ID: "20",
+            ReleaseToExecute: false,
+            ItemProduct: {
+              $attributes: { actionCode: "04" },
+              ProductInternalID: "100",
+            },
+            ItemScheduleLine: {
+              $attributes: { actionCode: "04" },
+              ID: "1",
+              TypeCode: "1",
+              Quantity: 3.0,
+            },
           },
-        },
+        ],
       },
     },
   };
