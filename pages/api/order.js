@@ -71,13 +71,25 @@ export default function handler(req, res) {
             ReleaseToExecute: false,
             ItemProduct: {
               $attributes: { actionCode: "04" },
-              ProductInternalID: "100",
+              ProductInternalID: "302",
             },
             ItemScheduleLine: {
               $attributes: { actionCode: "04" },
               ID: "1",
               TypeCode: "1",
               Quantity: 3.0,
+            },
+            PriceAndTaxCalculationItem: {
+              $attributes: { actionCode: "04" },
+              ItemMainPrice: {
+                $attributes: { actionCode: "04" },
+                Rate: {
+                  DecimalValue: 5,
+                  CurrencyCode: "MXN",
+                  BaseDecimalValue: 1.0,
+                  BaseMeasureUnitCode: "ZPZ",
+                },
+              },
             },
           },
         ],

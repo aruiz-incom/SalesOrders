@@ -3,11 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-const system = {
-  token: "QVJVSVo6SW5jb20jNzI0IQ==",
-  url: "https://my338095.sapbydesign.com/sap/byd/odata/ana_businessanalytics_analytics.svc/RPZ19E8DA3EFFE9E02CA7CB66QueryResults?$select=CITEM_GROUP,TITEM_GROUP,CPRODUCT_ID,TPRODUCT_ID,CSALES_MEASURE_UNIT_CODE,TSALES_MEASURE_UNIT_CODE&$filter=(CPRODUCT_ID%20eq%20%27*ALCOHOL40%27)&$format=json",
-};
-
 export default function Home() {
   const putOrder = () => {
     axios

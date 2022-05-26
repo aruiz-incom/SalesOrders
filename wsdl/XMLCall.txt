@@ -1,0 +1,64 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global" xmlns:glob1="http://sap.com/xi/AP/Globalization">
+    <soap:Header />
+    <soap:Body>
+        <glob:SalesOrderBundleMaintainRequest_sync>
+            <BasicMessageHeader></BasicMessageHeader>
+            <SalesOrder actionCode="01">
+            	<!-- Nodo de campaña -->
+			<BusinessTransactionDocumentReference actionCode="01">
+			<BusinessTransactionDocumentReference>
+				<!-- ID de campaña -->
+				<ID>81</ID>
+				<!-- Código interno en SAP para referirse a Campaña   -->
+				<TypeCode>764</TypeCode>
+			</BusinessTransactionDocumentReference>
+			<BusinessTransactionDocumentRelationshipRoleCode>1</BusinessTransactionDocumentRelationshipRoleCode>
+			<DataProviderIndicator>true</DataProviderIndicator>
+			</BusinessTransactionDocumentReference>
+			<!-- Fin de Nodo de campaña -->
+			<!-- Unidad de venta, 101024 corresponde a TERCEROS -->
+                <SalesUnitParty actionCode="04">
+                    <PartyID>101024</PartyID>
+                </SalesUnitParty>
+                <!-- Canal de distribución, Z4 corresponde a Ecommerce -->
+                <SalesAndServiceBusinessArea actionCode="04">
+                    <DistributionChannelCode>Z4</DistributionChannelCode>
+                </SalesAndServiceBusinessArea>
+                <!-- Empleado responsable, 1000 corresponde a Francisco -->
+                <EmployeeResponsibleParty actionCode="04">
+                    <PartyID>1000</PartyID>
+                </EmployeeResponsibleParty>
+                <!-- Nombre de cliente -->
+                <AccountParty actionCode="04">
+                    <PartyID>MOSTRADOR</PartyID>
+                </AccountParty>
+                <!-- Términos de venta -->
+                <PricingTerms actionCode="04">
+                    <CurrencyCode>MXN</CurrencyCode>
+                    <!-- Fecha y hora de operación -->
+                    <PriceDateTime timeZoneCode="UTC">2022-05-25T12:00:00Z</PriceDateTime>
+                    <!-- false indica que el desglose de impuestos lo realiza SAP, en caso de enviar monto bruto deben enviarse los nodos correspondientes -->
+                    <GrossAmountIndicator>false</GrossAmountIndicator>
+                </PricingTerms>
+                <!-- Nodo Item en la que se indican las posiciones -->
+                <Item actionCode="04">
+                	<!-- ID de posición, debe incrementarse de 10 en 10 -->
+                    <ID>10</ID>
+                    <!-- Liberar para ejecutar, corresponde al ATP? -->
+                    <ReleaseToExecute>false</ReleaseToExecute>
+                    <!-- Número de parte del producto pedido -->
+                    <ItemProduct actionCode="04">
+                        <ProductInternalID>2178S</ProductInternalID>
+                    </ItemProduct>
+                    <!-- Línea de programación de árticulos, revisar -->
+                    <ItemScheduleLine actionCode="04">
+                        <ID>1</ID>
+                        <TypeCode>1</TypeCode>
+                        <!-- Cantidad de items solicitados en el pedido -->
+                        <Quantity>5.0</Quantity>
+                    </ItemScheduleLine>
+                </Item>
+            </SalesOrder>
+        </glob:SalesOrderBundleMaintainRequest_sync>
+    </soap:Body>
+</soap:Envelope>
