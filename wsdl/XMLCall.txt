@@ -4,19 +4,95 @@
         <glob:SalesOrderBundleMaintainRequest_sync>
             <BasicMessageHeader></BasicMessageHeader>
             <SalesOrder actionCode="01">
-            	<!-- Nodo de campaña -->
-			<BusinessTransactionDocumentReference actionCode="01">
-			<BusinessTransactionDocumentReference>
-				<!-- ID de campaña -->
-				<ID>81</ID>
-				<!-- Código interno en SAP para referirse a Campaña   -->
-				<TypeCode>764</TypeCode>
-			</BusinessTransactionDocumentReference>
-			<BusinessTransactionDocumentRelationshipRoleCode>1</BusinessTransactionDocumentRelationshipRoleCode>
-			<DataProviderIndicator>true</DataProviderIndicator>
-			</BusinessTransactionDocumentReference>
-			<!-- Fin de Nodo de campaña -->
-			<!-- Unidad de venta, 101024 corresponde a TERCEROS -->
+                <!-- Descripción -->
+                <Name languageCode="ES">Alexis Ruiz Santiago</Name>
+                <!-- Referencia externa -->
+                <BuyerID>Alexis Ruiz</BuyerID>
+                <!-- Nodo de campaña -->
+                <BusinessTransactionDocumentReference actionCode="01">
+                    <BusinessTransactionDocumentReference>
+                        <!-- ID de campaña -->
+                        <ID>81</ID>
+                        <!-- Código interno en SAP para referirse a Campaña   -->
+                        <TypeCode>764</TypeCode>
+                    </BusinessTransactionDocumentReference>
+                    <BusinessTransactionDocumentRelationshipRoleCode>1</BusinessTransactionDocumentRelationshipRoleCode>
+                    <DataProviderIndicator>true</DataProviderIndicator>
+                </BusinessTransactionDocumentReference>
+                <!-- Fin de Nodo de campaña -->
+
+                <!--Service recipient node:-->
+                <ProductRecipientParty actionCode="04">
+                    <!-- Could change but works whit this ID, the PartyID is mandatory -->
+                    <PartyID>MOSTRADOR</PartyID>
+                    <!--Address node-->
+                    <Address>
+                        <!--Language:-->
+                        <CorrespondenceLanguageCode>ES</CorrespondenceLanguageCode>
+                        <!--Zero or more repetitions:-->
+                        <Email>
+                            <!--Email:-->
+                            <URI>aruiz@it4u.com.mx</URI>
+                            <!--Email by default:-->
+                            <DefaultIndicator>true</DefaultIndicator>
+                        </Email>
+                        <!--Telephone node-->
+                        <Telephone>
+                            <!--Number node-->
+                            <Number>
+                                <!--Telephone-->
+                                <SubscriberID>5577641945</SubscriberID>
+                                <!--Country code-->
+                                <CountryCode>MX</CountryCode>
+                            </Number>
+                            <!--Set the phone number for default-->
+                            <DefaultConventionalPhoneNumberIndicator>false</DefaultConventionalPhoneNumberIndicator>
+                            <!--Set the mobile phone for default-->
+                            <DefaultMobilePhoneNumberIndicator>true</DefaultMobilePhoneNumberIndicator>
+                            <!--To show the country code-->
+                            <MobilePhoneNumberIndicator>true</MobilePhoneNumberIndicator>
+                        </Telephone>
+                        <!--Name of the service recipient-->
+                        <DisplayName>
+                            <!--Name-->
+                            <FormattedName languageCode="ES">Cliente Alexis Ruiz Santiago</FormattedName>
+                        </DisplayName>
+                        <!--Direction-->
+                        <Name>
+                            <Name>
+                                <!--First line "Nombre"-->
+                                <FirstLineName>Plaza aviación 77, 7</FirstLineName>
+                                <!--Second line "Nombre adicional 1"-->
+                                <SecondLineName>Moctezuma 1ra sección</SecondLineName>
+                                <!--Third line "Nombre adicional 2"-->
+                                <ThirdLineName>Venustiano Carranza</ThirdLineName>
+                                <!--Fourth line "Nombre adicional 3"-->
+                                <FourthLineName>15500</FourthLineName>
+                            </Name>
+                        </Name>
+                        <!--Primary address-->
+                        <PostalAddress>
+                            <!--Country code "MX" for Mexico-->
+                            <CountryCode>MX</CountryCode>
+                            <!--State code "DF" for Ciudad de Mexico-->
+                            <RegionCode>DF</RegionCode>
+                            <!--City name "Municipio"-->
+                            <CityName>CIUDAD DE MEXICO</CityName>
+                            <!--"Colonia"-->
+                            <DistrictName>Moctezuma 1ra sección</DistrictName>
+                            <!--"Código postal"-->
+                            <StreetPostalCode>15500</StreetPostalCode>
+                            <!--"Calle"-->
+                            <StreetName>Plaza aviación</StreetName>
+                            <!--"Número exterior"-->
+                            <HouseID>100</HouseID>
+                            <!--"A la atención de"-->
+                            <CareOfName>Alexis Roiz</CareOfName>
+                        </PostalAddress>
+                    </Address>
+                </ProductRecipientParty>
+
+                <!-- Unidad de venta, 101024 corresponde a TERCEROS -->
                 <SalesUnitParty actionCode="04">
                     <PartyID>101024</PartyID>
                 </SalesUnitParty>
@@ -42,7 +118,7 @@
                 </PricingTerms>
                 <!-- Nodo Item en la que se indican las posiciones -->
                 <Item actionCode="04">
-                	<!-- ID de posición, debe incrementarse de 10 en 10 -->
+                    <!-- ID de posición, debe incrementarse de 10 en 10 -->
                     <ID>10</ID>
                     <!-- Liberar para ejecutar, corresponde al ATP? -->
                     <ReleaseToExecute>false</ReleaseToExecute>
@@ -55,7 +131,7 @@
                         <ID>1</ID>
                         <TypeCode>1</TypeCode>
                         <!-- Cantidad de items solicitados en el pedido -->
-                        <Quantity>5.0</Quantity>
+                        <Quantity>1.0</Quantity>
                     </ItemScheduleLine>
                 </Item>
             </SalesOrder>

@@ -40,6 +40,50 @@ export default function handler(req, res) {
           $attributes: { actionCode: "04" },
           PartyID: "MOSTRADOR",
         },
+        ProductRecipientParty: {
+          $attributes: { actionCode: "04" },
+          PartyID: "MOSTRADOR",
+          Address: {
+            CorrespondenceLanguageCode: "ES",
+            Email: {
+              URI: "aruiz@it4u.com.mx",
+              DefaultIndicator: true,
+            },
+            Telephone: {
+              Number: {
+                SubscriberID: "5577641945",
+                CountryCode: "MX",
+              },
+              DefaultConventionalPhoneNumberIndicator: false,
+              DefaultMobilePhoneNumberIndicator: true,
+              MobilePhoneNumberIndicator: true,
+            },
+            DisplayName: {
+              FormattedName: {
+                $attributes: { languageCode: "ES" },
+                $value: "Cliente Alexis Ruiz Santiago",
+              },
+            },
+            Name: {
+              Name: {
+                FirstLineName: "Cecilio Robelo 373",
+                SecondLineName: "Jardpin Balbuena",
+                ThirdLineName: "Venustiano Carranza, Ciudad de México",
+                FourthLineName: "15900",
+              },
+            },
+            PostalAddress: {
+              CountryCode: "MX",
+              RegionCode: "DF",
+              CityName: "CIUDAD DE MEXICO",
+              DistrictName: "Jardín Balbuena",
+              StreetPostalCode: "15900",
+              StreetName: "Cecilio Robelo",
+              HouseID: "373",
+              CareOfName: "Alexis Ruiz",
+            },
+          },
+        },
         PricingTerms: {
           $attributes: { actionCode: "04" },
           CurrencyCode: "MXN",
